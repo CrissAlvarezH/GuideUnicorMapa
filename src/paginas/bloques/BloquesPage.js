@@ -46,9 +46,11 @@ class BloquesPage extends Component {
     render() {
         return (
             <div className="BloquesPage">
-                {
-                    this.bloques.map( bloque => <Bloque datos={bloque} key={bloque.id} /> )
-                }
+                <div className="cont-lista-bloques">
+                    {
+                        this.bloques.map( bloque => <Bloque datos={bloque} key={bloque.id} /> )
+                    }
+                </div>
             </div>
         );
     }
