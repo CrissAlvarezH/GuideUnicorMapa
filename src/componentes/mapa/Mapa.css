@@ -1,0 +1,9 @@
+.mapa {
+    width: 50%;
+    height: 50%;
+}
+
+.cont-map {
+    height: 100%;
+    position: relative;
+}

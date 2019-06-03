@@ -1,0 +1,23 @@
+.HomePage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+  
+.home-page-mapa {
+    flex-grow: 1;
+}
+
+.home-page-mapa>div {
+    height: 100%;
+}
+
+
+h1 {
+    margin: 0;
+    padding: 10px 10px;
+}
+
+BottomNavigation {
+    width: 100%;
+}
