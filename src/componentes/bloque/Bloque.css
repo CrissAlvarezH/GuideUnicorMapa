@@ -7,3 +7,48 @@
     width: 100%;
     padding: 5px 10px;
 }
+
+.cont-imgs {
+    position: relative;
+}
+
+.cont-imgs span {
+    position: absolute;
+
+    background-color: rgba(0, 0, 0, 0.267);
+    padding: 10px 15px;
+    font-size: 1.2em;
+    color: white;
+    top: 0;
+    left: 0;
+}
+
+.cont-salones-zona {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.cont-salones-zona>.salones {
+    flex-grow: 1;
+}
+
+.fondo-verde {
+    background-color: #049704 !important;
+}
+
+.fondo-rojo {
+    background-color: #970429 !important;
+}
+
+.fondo-rosa {
+    background-color: #97048b !important;
+}
+
+.fondo-amarillo {
+    background-color: #978604 !important;
+}
+
+.fondo-azul {
+    background-color: #0b0497 !important;
+}

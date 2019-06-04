@@ -9,37 +9,43 @@ class BloquesPage extends Component {
             'id': 1,
             'codigo': 1,
             'nombre': 'Bloque numero 1',
-            'cantSalones': 13
+            'cantSalones': 13,
+            'zona': 'A'
         },
         {
             'id': 2,
             'codigo': 2,
             'nombre': 'Bloque numero 2',
-            'cantSalones': 10
+            'cantSalones': 10,
+            'zona': 'A'
         },
         {
             'id': 3,
             'codigo': 3,
             'nombre': 'Bloque numero 3',
-            'cantSalones': 7
+            'cantSalones': 7,
+            'zona': 'B'
         },
         {
             'id': 4,
             'codigo': 4,
             'nombre': 'Bloque numero 4',
-            'cantSalones': 5
+            'cantSalones': 5,
+            'zona': 'C'
         },
         {
             'id': 5,
-            'codigo': 4,
-            'nombre': 'Bloque numero 4',
-            'cantSalones': 5
+            'codigo': 5,
+            'nombre': 'Bloque numero 5',
+            'cantSalones': 5,
+            'zona': 'D'
         },
         {
             'id': 6,
-            'codigo': 4,
-            'nombre': 'Bloque numero 4',
-            'cantSalones': 5
+            'codigo': 6,
+            'nombre': 'Bloque numero 6',
+            'cantSalones': 5,
+            'zona': 'E'
         }
     ];
 
