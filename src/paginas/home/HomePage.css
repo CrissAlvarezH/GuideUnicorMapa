@@ -6,7 +6,7 @@
     height: 100%;
     box-sizing: border-box;
     padding-bottom: 56px;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: rgb(248, 246, 246);
 }
 
