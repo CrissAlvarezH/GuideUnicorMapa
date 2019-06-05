@@ -4,6 +4,7 @@
 }
 
 .lista-bloques {
+    width: 100%;
     max-width: 1108px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(297px, 1fr));

@@ -61,6 +61,8 @@ class Bloque extends Component {
                 return 'fondo-rojo';
             case 'E':
                 return 'fondo-amarillo';
+            default:
+                return '';
         }
     }
 

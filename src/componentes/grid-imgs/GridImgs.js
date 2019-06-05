@@ -12,9 +12,9 @@ class GridImgs extends Component {
 
             <div className="card-bloque-img">
 
-                <img className="img1" src={ this.rutaImg1 }/>
-                <img className="img2" src={ this.rutaImg2 }/>
-                <img className="img3" src={ this.rutaImg3 }/>
+                <img className="img1" src={ this.rutaImg1 } alt='Imagen bloque 1'/>
+                <img className="img2" src={ this.rutaImg2 } alt='Imagen bloque 1'/>
+                <img className="img3" src={ this.rutaImg3 } alt='Imagen bloque 1'/>
 
             </div>
         );
