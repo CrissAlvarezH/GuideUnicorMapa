@@ -53,10 +53,12 @@ class BloquesPage extends Component {
         return (
             <div className="BloquesPage">
                 <div className="cont-lista-bloques">
-                    {
-                        this.bloques.map( bloque => <Bloque datos={bloque} key={bloque.id} /> )
-                    }
-                </div>
+                    <div className="lista-bloques">
+                        {
+                            this.bloques.map( bloque => <Bloque datos={bloque} key={bloque.id} /> )
+                        }
+                    </div>
+                </div>  
             </div>
         );
     }

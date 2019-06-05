@@ -1,0 +1,11 @@
+.cont-lista-bloques {
+    display: flex;
+    justify-content: center;
+}
+
+.lista-bloques {
+    max-width: 1108px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(297px, 1fr));
+}
+
