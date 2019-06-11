@@ -55,7 +55,7 @@ class BloquesPage extends Component {
                 <div className="cont-lista-bloques">
                     <div className="lista-bloques">
                         {
-                            this.bloques.map( bloque => <Bloque datos={bloque} key={bloque.id} /> )
+                            this.props.bloques.map( bloque => <Bloque datos={bloque} key={bloque.id} /> )
                         }
                     </div>
                 </div>  

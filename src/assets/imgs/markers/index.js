@@ -48,7 +48,6 @@ import bloque51 from './bloque_51.png';
 import bloque52 from './bloque_52.png';
 
 let getLogoMarker = (idBloque) => {
-    console.log('Bloque a buscar logo', idBloque);
     
     switch (idBloque) {
         case '1':

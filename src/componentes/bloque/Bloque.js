@@ -17,7 +17,7 @@ class Bloque extends Component {
                 <Card className="card-bloque">
 
                     <div className="cont-imgs">
-                        <GridImgs />
+                        <GridImgs id={ this.props.datos.id } />
 
                         <span> { this.props.datos.codigo } </span>
                     </div>
@@ -32,14 +32,14 @@ class Bloque extends Component {
                         <div className="cont-salones-zona">
                             <div className="salones">
                                 <Typography  variant="body2" color="textSecondary" component="p">
-                                    { this.props.datos.cantSalones } Salones
+                                    { this.props.datos.salones.length } Salones
                                 </Typography>
                             </div>
 
                          
                             <Chip 
                                 className={ 'chip-zona ' + claseColorChip }
-                                label={ 'Zona ' + this.props.datos.zona } 
+                                label={ 'Zona ' + this.definitLetraZona() } 
                                 color={ 'primary' }/>
 
                         </div>
@@ -49,17 +49,34 @@ class Bloque extends Component {
         );
     }
 
+    definitLetraZona = () => {
+        switch (this.props.datos.idZona) {
+            case 1:
+                return 'A';
+            case 2:
+                return 'B';
+            case 3:
+                return 'C';
+            case 4:
+                return 'D';
+            case 5:
+                return 'E';
+            default:
+                return '';
+        }
+    }
+
     definirColorChip = () => {
-        switch (this.props.datos.zona) {
-            case 'A':
+        switch (this.props.datos.idZona) {
+            case 1:
                 return 'fondo-verde';
-            case 'B':
+            case 2:
                 return 'fondo-azul';
-            case 'C':
+            case 3:
                 return 'fondo-rosa';
-            case 'D':
+            case 4:
                 return 'fondo-rojo';
-            case 'E':
+            case 5:
                 return 'fondo-amarillo';
             default:
                 return '';

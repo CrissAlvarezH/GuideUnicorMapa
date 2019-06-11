@@ -39,7 +39,6 @@ class Mapa extends Component {
                     {
                         this.props.bloques.map( bloque => {
                             let logoMarker = getLogoMarker( bloque.codigo );
-                            console.log('Logo marker', logoMarker);
 
                             return <Marker
                                         key={bloque.id}
