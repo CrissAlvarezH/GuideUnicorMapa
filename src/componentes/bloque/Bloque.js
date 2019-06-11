@@ -17,7 +17,7 @@ class Bloque extends Component {
                 <Card className="card-bloque">
 
                     <div className="cont-imgs">
-                        <GridImgs id={ this.props.datos.id } />
+                        <GridImgs id={ this.props.datos.codigo } />
 
                         <span> { this.props.datos.codigo } </span>
                     </div>

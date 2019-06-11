@@ -9,15 +9,21 @@ import SplashPage from '../splash/SplashPage';
 
 class HomePage extends Component {
 
+    abortController = new AbortController();
+
     state = {
         indexBottonNav: 0,
         bloques: [],
-        cargandoInfo: false,
+        cargandoInfo: true,
         errorCarga: ''
     }
 
     componentDidMount() {
         this.cargarBloques();
+    }
+
+    componentWillUnmount() {
+        this.abortController.abort(); // Abortamos la peticion que sigan en proceso al desmontarsea
     }
 
     render() {
@@ -58,11 +64,7 @@ class HomePage extends Component {
 
     cargarBloques = () => {
 
-        this.setState({
-            cargandoInfo: true
-        });
-
-        fetch('http://142.93.71.94:4400/bloques/info-bloques')
+        fetch('http://142.93.71.94:4400/bloques/info-bloques', { signal: this.abortController.signal })
             .then( resp => resp.json() )
             .then( data => {
                 console.log('Respuesta server: ', data);
