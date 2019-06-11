@@ -6,6 +6,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import MapaPage from '../mapa/MapaPage';
 import BloquesPage from '../bloques/BloquesPage';
 import SplashPage from '../splash/SplashPage';
+import BarraBuscar from '../../componentes/barra-buscar/BarraBuscar';
 
 class HomePage extends Component {
 
@@ -36,6 +37,8 @@ class HomePage extends Component {
 
         return (
             <div className="HomePage">
+
+                <BarraBuscar />
     
                 <div className="home-page-mapa">
                     {
