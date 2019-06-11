@@ -9,7 +9,7 @@ class MapaPage extends Component {
         return (
             <div className="MapaPage">
     
-                <Mapa />
+                <Mapa bloques={ this.props.bloques }/>
 
             </div>
         );
