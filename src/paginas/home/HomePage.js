@@ -49,13 +49,12 @@ class HomePage extends Component {
                     this.state.filtroBusqueda !== '' && <div className="cont-res-busqueda"> <ResBusqueda bloques={ this.state.bloquesFiltrados } salones={ this.state.salonesFiltrados } /> </div>
                 }
     
-                <div className="home-page-contenido">
-                    {
-                        page
-                    }
-                </div>
-
-                
+        
+                {
+                    page
+                }
+          
+           
                 <BottomNavigation 
                     className="home-bottom-nav"
                     value={ this.state.indexBottonNav }

@@ -1,5 +1,9 @@
 .MapaPage {
-    height: 100%;
+    position: fixed;
+    top: 52px;
+    bottom: 56px;
+    right: 0;
+    left: 0;
 }
   
 .MapaPage>div {
