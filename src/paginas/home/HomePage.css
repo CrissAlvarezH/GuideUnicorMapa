@@ -2,12 +2,12 @@
     height: 100%;
 }
   
-.home-page-mapa {
+.home-page-contenido {
     height: 100%;
+    background-color: rgb(248, 246, 246);
     box-sizing: border-box;
     padding-bottom: 56px;
-    overflow-y: scroll;
-    background-color: rgb(248, 246, 246);
+    padding-top: 52px;
 }
 
 .home-page-mapa>div {
@@ -28,9 +28,12 @@ h1 {
     bottom: 0;
 }
 
-.cont-lista-bloques {
-    overflow: auto;
-    box-sizing: border-box;
-    padding-bottom: 56px;
-    padding-top: 52px;
+.cont-res-busqueda {
+    position: fixed;
+    width: 100%;
+    max-height: 70%;
+    top: 52px;
+    z-index: 200;
+    overflow-y: scroll;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.322);
 }

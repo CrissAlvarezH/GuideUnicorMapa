@@ -1,0 +1,31 @@
+
+.ResBusqueda {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: white;
+}
+
+.item-bloque {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.item-bloque>.chip-cod-bloque {
+    margin-right: 10px;
+}
+
+hr {
+    margin: 5px 0;
+}
+
+.cont-salones {
+    box-sizing: border-box;
+    padding-top: 8px;
+    max-height: 50%;
+}

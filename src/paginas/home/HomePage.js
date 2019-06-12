@@ -7,6 +7,7 @@ import MapaPage from '../mapa/MapaPage';
 import BloquesPage from '../bloques/BloquesPage';
 import SplashPage from '../splash/SplashPage';
 import BarraBuscar from '../../componentes/barra-buscar/BarraBuscar';
+import ResBusqueda from '../../componentes/res-busqueda/ResBusqueda';
 
 class HomePage extends Component {
 
@@ -14,7 +15,11 @@ class HomePage extends Component {
 
     state = {
         indexBottonNav: 0,
+        filtroBusqueda: '',
         bloques: [],
+        salones: [],
+        bloquesFiltrados: [],
+        salonesFiltrados: [],
         cargandoInfo: true,
         errorCarga: ''
     }
@@ -38,9 +43,13 @@ class HomePage extends Component {
         return (
             <div className="HomePage">
 
-                <BarraBuscar />
+                <BarraBuscar onBuscar={ this.onBuscar } />
+
+                {
+                    this.state.filtroBusqueda !== '' && <div className="cont-res-busqueda"> <ResBusqueda bloques={ this.state.bloquesFiltrados } salones={ this.state.salonesFiltrados } /> </div>
+                }
     
-                <div className="home-page-mapa">
+                <div className="home-page-contenido">
                     {
                         page
                     }
@@ -65,6 +74,40 @@ class HomePage extends Component {
         );
     }
 
+    onBuscar = (event) => {
+        let filtro = event.target.value;
+
+        this.setState({
+            filtroBusqueda: filtro
+        });
+
+        let bloques = this.state.bloques.filter( bloque => {
+            let nombre = bloque.nombre.toLowerCase();
+            let codigo = bloque.codigo.toString().toLowerCase();
+            filtro = filtro.toLowerCase();
+
+            if ( nombre.includes(filtro) || codigo.includes(filtro) ) {
+                return bloque;
+            }
+        });
+
+        let salones = this.state.salones.filter( salon => {
+            let nombre = salon.nombre.toLowerCase();
+            let codigo = salon.codigo.toLowerCase();
+            filtro = filtro.toLowerCase();
+
+            if ( nombre.includes(filtro) || codigo.includes(filtro) ) {
+                return salon;
+            }
+        });
+
+        this.setState({
+            bloquesFiltrados: bloques,
+            salonesFiltrados: salones
+        });
+
+    }
+
     cargarBloques = () => {
 
         fetch('http://142.93.71.94:4400/bloques/info-bloques', { signal: this.abortController.signal })
@@ -76,7 +119,10 @@ class HomePage extends Component {
 
                     this.setState({
                         cargandoInfo: false,
-                        bloques: data.bloques,
+                        bloques: data.info.bloques,
+                        salones: data.info.salones,
+                        salonesFiltrados: [],
+                        bloquesFiltrados: [],
                         errorCarga: ''
                     });
 
@@ -86,6 +132,9 @@ class HomePage extends Component {
                     this.setState({
                         cargandoInfo: false,
                         bloques: [],
+                        salones: [],
+                        salonesFiltrados: [],
+                        bloquesFiltrados: [],
                         error: 'No se pudo cargar la pagina'
                     })
                 }
