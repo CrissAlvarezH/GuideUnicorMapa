@@ -87,6 +87,8 @@ class HomePage extends Component {
 
             if ( nombre.includes(filtro) || codigo.includes(filtro) ) {
                 return bloque;
+            } else {
+                return false;
             }
         });
 
@@ -97,6 +99,8 @@ class HomePage extends Component {
 
             if ( nombre.includes(filtro) || codigo.includes(filtro) ) {
                 return salon;
+            } else {
+                return false;
             }
         });
 

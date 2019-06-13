@@ -4,3 +4,17 @@
     height: 100%;
     position: relative;
 }
+
+.cont-info-window {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.cont-info-window img {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.cont-info-window h4 {
+    margin: 4px 0 0 0;
+}
