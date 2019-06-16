@@ -49,47 +49,61 @@ class ResBusqueda extends Component {
 
         return bloques.map( bloque => {
 
-            return <div className="cont-item-bloque" key={ bloque.id }>
+            return (
+                <div 
+                    onClick={ e => this.props.onClickBusqueda(bloque.id) }
+                    className="cont-item-bloque" 
+                    key={ bloque.id }
+                >
 
-                <div className="item-bloque">
-                    <Chip
-                        className="chip-cod-bloque"
-                        label={ bloque.codigo }
-                        variant="outlined"
-                        color="primary"
-                    />
+                    <div className="item-bloque">
+                        <Chip
+                            className="chip-cod-bloque"
+                            label={ bloque.codigo }
+                            variant="outlined"
+                            color="primary"
+                        />
 
-                    <Typography  variant="body1" color="textPrimary" component="p">
-                        { bloque.nombre }
-                    </Typography>
+                        <Typography  variant="body1" color="textPrimary" component="p">
+                            { bloque.nombre }
+                        </Typography>
+                    </div>
+
+                    <Divider />
                 </div>
-
-                <Divider />
-            </div>;
+            );
 
         }); 
     }
 
     listaSalones = (salones) => {
         return salones.map( salon => {
-            return  <div className="cont-item-bloque" key={ salon.id }>
+            return  (
+                <div 
+                    onClick={ e => this.props.onClickBusqueda(salon.id_bloque) }
+                    className="cont-item-bloque" 
+                    key={ salon.id }
+                >
 
-                        <div className="item-bloque">
-                            <Chip
-                                className="chip-cod-bloque"
-                                label={ salon.codigo }
-                                color="primary"
-                            />
+                    <div className="item-bloque">
+                        <Chip
+                            className="chip-cod-bloque"
+                            label={ salon.codigo }
+                            color="primary"
+                        />
 
-                            <Typography  variant="body1" color="textPrimary" component="p">
-                                { salon.nombre }
-                            </Typography>
-                        </div>
-
-                        <Divider />
+                        <Typography  variant="body1" color="textPrimary" component="p">
+                            { salon.nombre }
+                        </Typography>
                     </div>
+
+                    <Divider />
+                </div>
+            );
         })
     }
+
+    
 
 }
 

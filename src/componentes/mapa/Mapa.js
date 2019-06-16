@@ -42,14 +42,17 @@ class Mapa extends Component {
                         onMarkerClick={this.onMarkerClick}
                     />
 
+              
+                    
                     <InfoWindow
-
                         marker={this.state.activeMarker}
                         visible={this.state.mostrandoInfoWindow}
                         onClose={this.onCloseInfoWindow}
                     >
-
-                        <div className="cont-info-window" >
+                    
+                        <div
+                            className="cont-info-window" 
+                        >
                             <img 
                                 src={ `http://142.93.71.94/imagenes_unicor/bloques/${ this.state.marcadorSeleccionado.codigoBloque }/1.jpg` } 
                                 alt={`Imagen del bloque ${ this.state.marcadorSeleccionado.codigoBloque}`}
@@ -57,14 +60,18 @@ class Mapa extends Component {
 
                             <h4>{this.state.marcadorSeleccionado.nombre}</h4>
                         </div>
+                        
+                        
                     </InfoWindow>
-
+                    
                 </Map>
             </div>
         );
     }
 
-
+    onClickInfowindow = (event) => {
+        console.log('Click a ', this.state.marcadorSeleccionado.idBloque);
+    }
 
     onMapClick = (event) => {
         this.onCloseInfoWindow()
@@ -119,6 +126,7 @@ class ListaMarkers extends Component {
                                 onClick={this.props.onMarkerClick}
                                 nombre={ bloque.nombre }
                                 codigoBloque={ bloque.codigo }
+                                idBloque={ bloque.id }
                                 position={{
                                     lat: bloque.posicion.latitud,
                                     lng: bloque.posicion.longitud
