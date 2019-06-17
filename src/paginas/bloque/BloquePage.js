@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import './BloquePage.css';
 import { cargarAsyncDatos } from '../../store/actions/datos';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import SwipeImgs from '../../componentes/swipe-imgs/SwipeImgs';
 
 class BloquePage extends Component {
 
@@ -23,16 +29,34 @@ class BloquePage extends Component {
         console.log(this.props);
 
         return (
-            <div>
-                <span> Bloque Page... { JSON.stringify(this.props.bloque) } </span>
+            <div className="BloquePage">
+
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton edge="start" style={{ marginRight: '5px' }} color="inherit" aria-label="Menu">
+                            <ArrowBackIcon />
+                        </IconButton>
+
+                        <Typography variant="h6">
+                            { this.props.bloque && 'Bloque '+this.props.bloque.codigo}
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+
+                {
+                    this.props.bloque && <SwipeImgs id={ this.props.bloque.id } />
+                }
+
+                {/* <span> Bloque Page... { JSON.stringify(this.props.bloque) } </span> */}
 
                 <br />
                 <br />
 
-                <span> Salones... { JSON.stringify(this.props.salones) } </span>
+                {/* <span> Salones... { JSON.stringify(this.props.salones) } </span> */}
             </div>
         )
     }
+
 
 }
 
