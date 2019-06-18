@@ -10,6 +10,7 @@ import BloquesPage from '../bloques/BloquesPage';
 import SplashPage from '../splash/SplashPage';
 import BarraBuscar from '../../componentes/barra-buscar/BarraBuscar';
 import ResBusqueda from '../../componentes/res-busqueda/ResBusqueda';
+import NavBarra from '../../componentes/nav-bar/NavBarra';
 
 class HomePage extends Component {
 
@@ -39,12 +40,21 @@ class HomePage extends Component {
             page = this.state.indexBottonNav === 0 ? <MapaPage /> : <BloquesPage />;
         }
 
+        // TODO terminar de hacer el responsive
+
         return (
             <div className="HomePage">
+                
+                <div className="nav-barra-escritorio">
+                    <NavBarra 
+                        />
+                </div>
 
-                <BarraBuscar 
-                    onBuscar={ this.onBuscar } 
-                />
+                <div className="barra-busqueda-movil">
+                    <BarraBuscar
+                        onBuscar={ this.onBuscar } 
+                        />
+                </div>
 
                 {
                     this.state.filtroBusqueda !== '' && (
@@ -63,20 +73,21 @@ class HomePage extends Component {
                     page
                 }
           
-           
-                <BottomNavigation 
-                    className="home-bottom-nav"
-                    value={ this.state.indexBottonNav }
-                    onChange={(event, newValue) => {
-                        this.clickBottomNav(newValue);
-                    }}
-                    showLabels
-                >
+                <div className="cont-home-bottom-nav">
+                    <BottomNavigation 
+                        className="home-bottom-nav"
+                        value={ this.state.indexBottonNav }
+                        onChange={(event, newValue) => {
+                            this.clickBottomNav(newValue);
+                        }}
+                        showLabels
+                    >
 
-                    <BottomNavigationAction label="Mapa" />
-                    <BottomNavigationAction label="Bloques" />
+                        <BottomNavigationAction label="Mapa" />
+                        <BottomNavigationAction label="Bloques" />
 
-                </BottomNavigation>
+                    </BottomNavigation>
+                </div>
 
             </div>
         );

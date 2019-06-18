@@ -12,6 +12,7 @@ h1 {
 }
 
 .home-bottom-nav {
+    display: none;
     width: 100%;
     background-color: #fff;
     box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.322);
@@ -28,4 +29,30 @@ h1 {
     z-index: 200;
     overflow-y: scroll;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.322);
+}
+
+.barra-busqueda-movil {
+    display: none;
+}
+
+.nav-barra-escritorio {
+    display: block;
+}
+
+.cont-home-bottom-nav { 
+    display: none;
+}
+
+@media screen and (max-width: 715px) {
+    .nav-barra-escritorio {
+        display: none;
+    }
+
+    .barra-busqueda-movil {
+        display: block;
+    }
+
+    .cont-home-bottom-nav { 
+        display: block;
+    }
 }
