@@ -1,0 +1,44 @@
+
+.cont-datos-bloque {
+    background-color: rgb(238, 238, 238);
+    box-sizing: border-box;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+
+.cont-piso {
+    box-sizing: border-box;
+    padding: 7px 10px;
+}
+
+hr {
+    margin: 0;
+}
+
+.cont-cabecera-piso {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fondo-verde {
+    background-color: #049704 !important;
+}
+
+.fondo-rojo {
+    background-color: #970429 !important;
+}
+
+.fondo-rosa {
+    background-color: #97048b !important;
+}
+
+.fondo-amarillo {
+    background-color: #978604 !important;
+}
+
+.fondo-azul {
+    background-color: #0b0497 !important;
+}

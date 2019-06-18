@@ -1,0 +1,11 @@
+.item-salon {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.item-salon>.chip-cod-salon {
+    margin-right: 10px;
+}

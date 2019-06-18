@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 import './ResBusqueda.css';
+import ItemSalon from '../item-salon/ItemSalon';
 
 class ResBusqueda extends Component {
 
@@ -78,28 +79,12 @@ class ResBusqueda extends Component {
 
     listaSalones = (salones) => {
         return salones.map( salon => {
-            return  (
-                <div 
-                    onClick={ e => this.props.onClickBusqueda(salon.id_bloque) }
-                    className="cont-item-bloque" 
-                    key={ salon.id }
-                >
 
-                    <div className="item-bloque">
-                        <Chip
-                            className="chip-cod-bloque"
-                            label={ salon.codigo }
-                            color="primary"
-                        />
-
-                        <Typography  variant="body1" color="textPrimary" component="p">
-                            { salon.nombre }
-                        </Typography>
-                    </div>
-
-                    <Divider />
-                </div>
-            );
+            return <ItemSalon 
+                        onClickBusqueda = { this.props.onClickBusqueda }
+                        salon={ salon }
+                        key={ salon.id }
+                    />
         })
     }
 
