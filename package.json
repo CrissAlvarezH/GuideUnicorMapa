@@ -5,7 +5,9 @@
   "dependencies": {
     "@material-ui/core": "4.0.2",
     "@material-ui/icons": "^4.0.1",
+    "babel-polyfill": "^6.26.0",
     "google-maps-react": "2.0.2",
+    "isomorphic-fetch": "^2.2.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "^7.1.0",

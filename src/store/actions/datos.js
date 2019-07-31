@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 
 export const CARGA_DATOS_OKAY = '[DATOS] Carga datos okay';
 export const CARGA_DATOS_FAIL = '[DATOS] Carga datos fail';
