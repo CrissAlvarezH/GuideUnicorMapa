@@ -6,11 +6,44 @@ import getLogoMarker from '../../assets/imgs/markers/';
 
 class Mapa extends Component {
 
+    watchId;
+
     state = {
         mostrandoInfoWindow: false,  
         activeMarker: {},          
-        marcadorSeleccionado: {}         
+        marcadorSeleccionado: {},
+        posicionActual: undefined     
     };
+
+    componentDidMount() {
+        if ( navigator && navigator.geolocation ) {
+
+            this.watchId = navigator.geolocation.watchPosition(pos => {
+                console.log('Posición actual', pos);
+
+                if (pos != null && pos.coords != null ) {
+
+                    this.setState({
+                        posicionActual: {
+                            latitud: pos.coords.latitude,
+                            longitud: pos.coords.longitude
+                        }
+                    })
+                }
+
+
+            }, (error) => {
+                console.log('Error al obtener posicion', error);
+            })
+
+        }
+    }
+
+    componentWillUnmount() {
+        if ( navigator && navigator.geolocation ) {
+            navigator.geolocation.clearWatch(this.watchId);
+        }
+    }
 
     render() {
         return (
@@ -42,7 +75,15 @@ class Mapa extends Component {
                         onMarkerClick={this.onMarkerClick}
                     />
 
-              
+                    {
+                        this.state.posicionActual && 
+                            <Marker 
+                                position={{ 
+                                    lat: this.state.posicionActual.latitud, 
+                                    lng: this.state.posicionActual.longitud }} 
+                            />
+                    }
+                    
                     
                     <InfoWindow
                         marker={this.state.activeMarker}
