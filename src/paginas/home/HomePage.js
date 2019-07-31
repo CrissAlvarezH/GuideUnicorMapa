@@ -14,7 +14,7 @@ import NavBarra from '../../componentes/nav-bar/NavBarra';
 
 class HomePage extends Component {
 
-    abortController = new AbortController();
+    estaMontado = false;
 
     state = {
         indexBottonNav: 0,
@@ -24,12 +24,14 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+        this.estaMontado = true;
+
         if ( this.props.bloques.length === 0 )
-            this.props.dispatch( cargarAsyncDatos(this.abortController) );
+            this.props.dispatch( cargarAsyncDatos(this.estaMontado) );
     }
 
     componentWillUnmount() {
-        this.abortController.abort(); // Abortamos la peticion que sigan en proceso al desmontarsea
+        this.estaMontado = false;
     }
 
     render() {

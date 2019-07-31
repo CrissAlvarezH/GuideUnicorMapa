@@ -14,19 +14,21 @@ import ItemSalon from '../../componentes/item-salon/ItemSalon';
 
 class BloquePage extends Component {
 
-    abortController = new AbortController();
+    estaMontado = false;
 
     componentDidMount() {
+        this.estaMontado = true;
+
         // Si no se ha cargado el state mandamos a cargarlo
         if ( !this.props.bloque ) {
-            this.props.dispatch( cargarAsyncDatos(this.abortController) );
+            this.props.dispatch( cargarAsyncDatos(this.estaMontado) );
         }
 
         window.scrollTo(0, 0);
     }
 
     componentWillUnmount() {
-        this.abortController.abort();
+        this.estaMontado = false;
     }
 
     render() {
