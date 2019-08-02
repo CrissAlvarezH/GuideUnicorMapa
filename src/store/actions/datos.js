@@ -7,8 +7,7 @@ export const CARGA_DATOS_FAIL = '[DATOS] Carga datos fail';
 export function cargarAsyncDatos(estaMontado) {
     return (dispatch) => {
 
-        // fetch('http://142.93.71.94:4400/bloques/info-bloques', { signal: abortController.signal })
-        fetch('http://142.93.71.94:4400/bloques/info-bloques')
+        fetch('https://api.ubicor.alvarezcristian.com/info-bloques.php')
             .then( resp => resp.json() )
             .then( data => {
 

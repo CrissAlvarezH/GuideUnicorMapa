@@ -95,7 +95,7 @@ class Mapa extends Component {
                             className="cont-info-window" 
                         >
                             <img 
-                                src={ `http://142.93.71.94/imagenes_unicor/bloques/${ this.state.marcadorSeleccionado.codigoBloque }/1.jpg` } 
+                                src={ `https://api.ubicor.alvarezcristian.com/bloques/${ this.state.marcadorSeleccionado.codigoBloque }/1.jpg` } 
                                 alt={`Imagen del bloque ${ this.state.marcadorSeleccionado.codigoBloque}`}
                             />
 

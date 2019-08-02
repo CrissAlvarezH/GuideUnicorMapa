@@ -11,9 +11,9 @@ class SwipeImgs extends Component {
         value: 0
     }
 
-    urlImg1 = `http://142.93.71.94/imagenes_unicor/bloques/${ this.props.id }/1.jpg`;
-    urlImg2 = `http://142.93.71.94/imagenes_unicor/bloques/${ this.props.id }/2.jpg`;
-    urlImg3 = `http://142.93.71.94/imagenes_unicor/bloques/${ this.props.id }/3.jpg`;
+    urlImg1 = `https://api.ubicor.alvarezcristian.com/bloques/${ this.props.id }/1.jpg`;
+    urlImg2 = `https://api.ubicor.alvarezcristian.com/bloques/${ this.props.id }/2.jpg`;
+    urlImg3 = `https://api.ubicor.alvarezcristian.com/bloques/${ this.props.id }/3.jpg`;
 
     render() {
         return (
