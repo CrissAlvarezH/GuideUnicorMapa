@@ -1,11 +1,17 @@
 .MapaPage {
     position: fixed;
     top: 52px;
-    bottom: 56px;
+    bottom: 0;
     right: 0;
     left: 0;
 }
   
 .MapaPage>div {
     height: 100%;
+}
+
+@media screen and (max-width: 715px) {
+    .MapaPage {
+        bottom: 56px; 
+    }
 }

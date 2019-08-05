@@ -17,7 +17,7 @@ class HomePage extends Component {
     estaMontado = false;
 
     state = {
-        indexBottonNav: 0,
+        indexPagina: 0,
         filtroBusqueda: '',
         bloquesFiltrados: [],
         salonesFiltrados: []
@@ -39,7 +39,7 @@ class HomePage extends Component {
         let page = <SplashPage />
 
         if ( !this.props.cargandoInfo ) { // Si no está cargando: Tab 0 = Mapa, 1 = Bloques
-            page = this.state.indexBottonNav === 0 ? <MapaPage /> : <BloquesPage />;
+            page = this.state.indexPagina === 0 ? <MapaPage /> : <BloquesPage />;
         }
 
         // TODO terminar de hacer el responsive
@@ -49,7 +49,12 @@ class HomePage extends Component {
                 
                 <div className="nav-barra-escritorio">
                     <NavBarra 
-                        />
+                        indexPagina = { this.state.indexPagina }
+                        onChangePagina = { (nuevoIndex) => {
+                            this.changeIndexPagina(nuevoIndex);
+                        }}
+                        onBuscar = { this.onBuscar }
+                    />
                 </div>
 
                 <div className="barra-busqueda-movil">
@@ -78,9 +83,9 @@ class HomePage extends Component {
                 <div className="cont-home-bottom-nav">
                     <BottomNavigation 
                         className="home-bottom-nav"
-                        value={ this.state.indexBottonNav }
+                        value={ this.state.indexPagina }
                         onChange={(event, newValue) => {
-                            this.clickBottomNav(newValue);
+                            this.changeIndexPagina(newValue);
                         }}
                         showLabels
                     >
@@ -133,12 +138,12 @@ class HomePage extends Component {
 
     }
 
-    clickBottomNav = (value) => {
+    changeIndexPagina = (value) => {
 
         this.setState( prevState => {
             // Si selecciona el mismo no cambiamos
-            if ( prevState.indexBottonNav !== value ) {
-                return prevState.indexBottonNav = value;
+            if ( prevState.indexPagina !== value ) {
+                return prevState.indexPagina = value;
             }
         });
     }
