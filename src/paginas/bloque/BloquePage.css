@@ -1,4 +1,13 @@
 
+.BloquePage {
+    display: flex;
+    justify-content: center;
+}
+
+.cont-pagina-bloque {
+    max-width: 1000px;
+}
+
 .cont-datos-bloque {
     background-color: rgb(238, 238, 238);
     box-sizing: border-box;
@@ -13,6 +22,11 @@
 
 hr {
     margin: 0;
+}
+
+.lista-pisos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .cont-cabecera-piso {

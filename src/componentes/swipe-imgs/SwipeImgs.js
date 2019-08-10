@@ -33,25 +33,26 @@ class SwipeImgs extends Component {
                     </div>
                 </div>
 
-                <SwipeableViews
-                        index={this.state.value}
-                        onChangeIndex={this.handleChangeIndex}
-                    >
-                    
-                    <div className="cont-img">
-                        <img className="img" src={ this.urlImg1 } alt={`Imagen 1 bloque ${ this.props.id }`}/>
-                    </div>
+                <div className="cont-swipeable-views">
+                    <SwipeableViews
+                            index={this.state.value}
+                            onChangeIndex={this.handleChangeIndex}
+                        >
+                        
+                        <div className="cont-img">
+                            <img className="img" src={ this.urlImg1 } alt={`Imagen 1 bloque ${ this.props.id }`}/>
+                        </div>
 
-                    <div className="cont-img">
-                        <img className="img" src={ this.urlImg2 } alt={`Imagen 2 bloque ${ this.props.id }`}/>
-                    </div>
+                        <div className="cont-img">
+                            <img className="img" src={ this.urlImg2 } alt={`Imagen 2 bloque ${ this.props.id }`}/>
+                        </div>
 
-                    <div className="cont-img">
-                        <img className="img" src={ this.urlImg3 } alt={`Imagen 3 bloque ${ this.props.id }`}/>
-                    </div>
+                        <div className="cont-img">
+                            <img className="img" src={ this.urlImg3 } alt={`Imagen 3 bloque ${ this.props.id }`}/>
+                        </div>
 
-                </SwipeableViews>
-
+                    </SwipeableViews>
+                </div>
             </div>
         );
     }

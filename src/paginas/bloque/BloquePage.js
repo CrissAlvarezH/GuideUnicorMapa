@@ -11,6 +11,7 @@ import SwipeImgs from '../../componentes/swipe-imgs/SwipeImgs';
 import Chip from '@material-ui/core/Chip';
 import Card from '@material-ui/core/Card';
 import ItemSalon from '../../componentes/item-salon/ItemSalon';
+import NavBarra from '../../componentes/nav-bar/NavBarra';
 
 class BloquePage extends Component {
 
@@ -40,82 +41,92 @@ class BloquePage extends Component {
 
         return (
             <div className="BloquePage">
+            
+                <div className="cont-pagina-bloque">
 
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton onClick={ e => this.props.history.goBack() } edge="start" style={{ marginRight: '5px' }} color="inherit" aria-label="Menu">
-                            <ArrowBackIcon />
-                        </IconButton>
+                    <div className="cont-appbar-movil">
+                        <AppBar position="static">
+                            <Toolbar>
+                                <IconButton onClick={ e => this.props.history.goBack() } edge="start" style={{ marginRight: '5px' }} color="inherit" aria-label="Menu">
+                                    <ArrowBackIcon />
+                                </IconButton>
+
+                                <Typography variant="h6">
+                                    { 'Bloque '+this.props.bloque.codigo}
+                                </Typography>
+                            </Toolbar>
+                        </AppBar>
+                    </div>
+
+                    {
+                        <SwipeImgs id={ this.props.bloque.id } />
+                    }
+
+                    <div className="cont-datos-bloque">
 
                         <Typography variant="h6">
-                            { 'Bloque '+this.props.bloque.codigo}
+                            { this.props.bloque.nombre}
                         </Typography>
-                    </Toolbar>
-                </AppBar>
 
-                {
-                    <SwipeImgs id={ this.props.bloque.id } />
-                }
+                        <Chip 
+                            className={ 'chip-zona ' + claseColorChip }
+                            label={ 'Zona ' + this.definitLetraZona() } 
+                            color={ 'primary' }
+                        />
 
-                <div className="cont-datos-bloque">
+                    </div>
 
-                    <Typography variant="h6">
-                        { this.props.bloque.nombre}
-                    </Typography>
+                    <div className="cont-lista-pisos">
+                        <div className="lista-pisos">
+                            {
+                                this.props.bloque.pisos.map( piso => {
 
-                    <Chip 
-                        className={ 'chip-zona ' + claseColorChip }
-                        label={ 'Zona ' + this.definitLetraZona() } 
-                        color={ 'primary' }
-                    />
+                                    return (
+                                        <div className="cont-piso" key={piso.piso}>
+
+                                            <Card>
+
+                                                <div className="cont-cabecera-piso">
+
+                                                    <Typography variant="body1">
+                                                        Piso { piso.piso }
+                                                    </Typography>
+
+                                                    <Typography variant="body2">
+                                                        { piso.cantSalones } Salones
+                                                    </Typography>
+
+                                                </div>
+
+                                                <hr />
+
+                                                {
+                                                    this.props.salones.map( salon => {
+
+                                                        if ( salon.piso === piso.piso ) {
+
+                                                            return (
+                                                                <div style={{ padding: '0 10px' }} key={salon.id}>
+                                                                    <ItemSalon  salon={salon} />    
+                                                                </div>
+
+                                                            );
+
+                                                        } else {
+                                                            return false;
+                                                        }
+                                                    })
+                                                }
+
+                                            </Card>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                    </div>
 
                 </div>
-
-                {
-                    this.props.bloque.pisos.map( piso => {
-
-                        return (
-                            <div className="cont-piso" key={piso.piso}>
-
-                                <Card>
-
-                                    <div className="cont-cabecera-piso">
-
-                                        <Typography variant="body1">
-                                            Piso { piso.piso }
-                                        </Typography>
-
-                                        <Typography variant="body2">
-                                            { piso.cantSalones } Salones
-                                        </Typography>
-
-                                    </div>
-
-                                    <hr />
-
-                                    {
-                                        this.props.salones.map( salon => {
-
-                                            if ( salon.piso === piso.piso ) {
-
-                                                return (
-                                                    <div style={{ padding: '0 10px' }} key={salon.id}>
-                                                        <ItemSalon  salon={salon} />    
-                                                    </div>
-
-                                                );
-
-                                            } else {
-                                                return false;
-                                            }
-                                        })
-                                    }
-
-                                </Card>
-                            </div>
-                        );
-                    })
-                }
 
             </div>
         )
