@@ -8,6 +8,7 @@
 .cont-info-window {
     margin-top: 5px;
     margin-left: 5px;
+    max-width: 350px;
 }
 
 .cont-info-window img {

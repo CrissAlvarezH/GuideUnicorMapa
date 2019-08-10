@@ -23,7 +23,6 @@ function App() {
         <Switch>
           <Route exact path='/bloque' component={BloquePage} />
           <Route  path='/' component={HomePage} />
-          {/* <Redirect exact from='/' to='/mapa'  /> */}
         </Switch>
       </Provider>
     </BrowserRouter>
