@@ -18,28 +18,30 @@ class ResBusqueda extends Component {
                     bloques.length === 0 && salones.length === 0 && <Typography  variant="body1" color="textSecondary" component="p"> No hay coincidencias </Typography>
                 }
 
-                <div className="cont-bloques">
+                <div className="cont-resultado">
+                    <div className="cont-bloques">
 
-                    {
-                        bloques.length > 0 && <div> <Typography  variant="body1" color="textPrimary" component="p"> Bloques </Typography> <hr /> </div>
-                    }
-                    
-                    {
-                        this.listBloques(bloques)
-                    }
-                    
-                </div>
+                        {
+                            bloques.length > 0 && <div> <Typography  variant="body1" color="textPrimary" component="p"> Bloques </Typography> <hr /> </div>
+                        }
+                        
+                        {
+                            this.listBloques(bloques)
+                        }
+                        
+                    </div>
 
-                <div className="cont-salones">
+                    <div className="cont-salones">
 
-                    {
-                        salones.length > 0 && <div> <Typography  variant="body1" color="textPrimary" component="p"> Salones </Typography> <hr /> </div>
-                    }
+                        {
+                            salones.length > 0 && <div> <Typography  variant="body1" color="textPrimary" component="p"> Salones </Typography> <hr /> </div>
+                        }
 
-                    {
-                        this.listaSalones(salones)
-                    }
+                        {
+                            this.listaSalones(salones)
+                        }
 
+                    </div>
                 </div>
 
             </div>

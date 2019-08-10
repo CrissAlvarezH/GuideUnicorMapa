@@ -6,6 +6,15 @@
     box-sizing: border-box;
     padding: 15px;
     background-color: white;
+    
+
+    display: flex;
+    justify-content: center;
+}
+
+.cont-resultado {
+    display: flex;
+    max-width: 1108px;
 }
 
 .item-bloque {
@@ -24,8 +33,22 @@ hr {
     margin: 5px 0;
 }
 
+.cont-bloques {
+    padding-bottom: 8px;
+    padding-right: 20px;
+}
+
 .cont-salones {
     box-sizing: border-box;
-    padding-top: 8px;
     max-height: 50%;
+}
+
+@media screen and (max-width: 715px) {
+    .cont-resultado {
+        flex-direction: column;
+    }
+
+    .cont-bloques {
+        padding-right: 0;
+    }
 }
