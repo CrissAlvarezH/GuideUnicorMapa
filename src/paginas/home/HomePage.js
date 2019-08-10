@@ -90,12 +90,17 @@ class HomePage extends Component {
                     )
                 }
     
-                <Switch >
-                    <Redirect exact from='/' to='/mapa'  />
-                    <Route exact path='/bloques' component={BloquesPage} />
-                    <Route path='/mapa' component={MapaPage} />
-                </Switch>
+                {
+                    this.props.cargandoInfo ? <span> Cargando... </span> : ( 
 
+                        <Switch >
+                            <Redirect exact from='/' to='/mapa'  />
+                            <Route exact path='/bloques' component={BloquesPage} />
+                            <Route path='/mapa' component={MapaPage} />
+                        </Switch>
+                    )
+
+                }
 
                 <div className="cont-home-bottom-nav">
                     <BottomNavigation 
