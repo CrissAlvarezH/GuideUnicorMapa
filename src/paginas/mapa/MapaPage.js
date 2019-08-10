@@ -10,11 +10,20 @@ class MapaPage extends Component {
         return (
             <div className="MapaPage">
     
-                <Mapa bloques={ this.props.bloques }/>
+                <Mapa 
+                    bloques={ this.props.bloques }
+                    onClickInfowindow={ this.onClickInfowindow }
+                />
 
             </div>
         );
     }
+
+    onClickInfowindow = (idBloque) => {
+    
+        this.props.history.push(`/bloque?id=${ idBloque }`);
+    }
+    
 
 }
 

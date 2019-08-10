@@ -183,7 +183,7 @@ class HomePage extends Component {
         console.log('Id bloque a buscar',  idBloque);
         console.log(this.props);
 
-        this.props.history.push(`/bloques?id=${ idBloque }`);
+        this.props.history.push(`/bloque?id=${ idBloque }`);
     }
 }
 

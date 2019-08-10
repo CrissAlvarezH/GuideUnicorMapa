@@ -2,6 +2,8 @@
 .BloquePage {
     display: flex;
     justify-content: center;
+
+    padding-bottom: 100px;
 }
 
 .cont-pagina-bloque {

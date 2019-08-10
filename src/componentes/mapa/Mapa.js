@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import './Mapa.css';
 import getLogoMarker from '../../assets/imgs/markers/';
-
+import ReactDOM from 'react-dom';
 
 class Mapa extends Component {
 
@@ -84,14 +84,14 @@ class Mapa extends Component {
                             />
                     }
                     
-                    
-                    <InfoWindow
+                    <InfoWindowEnvoltura
                         marker={this.state.activeMarker}
                         visible={this.state.mostrandoInfoWindow}
-                        onClose={this.onCloseInfoWindow}
                     >
+
                     
                         <div
+                            onClick={ (e) => this.props.onClickInfowindow( this.state.marcadorSeleccionado.idBloque) }
                             className="cont-info-window" 
                         >
                             <img 
@@ -101,17 +101,12 @@ class Mapa extends Component {
 
                             <h4>{this.state.marcadorSeleccionado.nombre}</h4>
                         </div>
-                        
-                        
-                    </InfoWindow>
+                            
+                    </InfoWindowEnvoltura>
                     
                 </Map>
             </div>
         );
-    }
-
-    onClickInfowindow = (event) => {
-        console.log('Click a ', this.state.marcadorSeleccionado.idBloque);
     }
 
     onMapClick = (event) => {
@@ -136,6 +131,40 @@ class Mapa extends Component {
     };
 }
 
+/**
+ * Este componente se creó para envolver el infowindow y agregarle un onClick
+ * y así poder escuchar los eventos de click sobre él, debido a que no los acepta por defecto
+ */
+class InfoWindowEnvoltura extends Component {
+    constructor(props) {
+        super(props);
+        this.infoWindowRef = React.createRef();
+        this.contentElement = document.createElement(`div`);
+    }
+
+    componentDidUpdate(prevProps) {
+
+        if (this.props.children !== prevProps.children) {
+
+            ReactDOM.render(
+                React.Children.only(this.props.children),
+                this.contentElement
+            );
+
+            this.infoWindowRef.current.infowindow.setContent(this.contentElement);
+        }
+    }
+
+    render() {
+        return <InfoWindow ref={this.infoWindowRef} {...this.props} />;
+    }
+}
+
+/**
+ * La lista de marckers está hecha de tal manera que no se actualice cada vez que se le
+ * de click a un marker ya que esto cambia el estado de su componente padre, pero el
+ * no se actualiza si la lista de markers es la misma
+ */
 class ListaMarkers extends Component {
 
     constructor(props) {
