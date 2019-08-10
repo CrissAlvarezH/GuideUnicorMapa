@@ -11,6 +11,7 @@ import SplashPage from '../splash/SplashPage';
 import BarraBuscar from '../../componentes/barra-buscar/BarraBuscar';
 import ResBusqueda from '../../componentes/res-busqueda/ResBusqueda';
 import NavBarra from '../../componentes/nav-bar/NavBarra';
+import { BrowserRouter, Route, Switch, Redirect  } from 'react-router-dom';
 
 class HomePage extends Component {
 
@@ -24,6 +25,28 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+        console.log('Propiedades de Home', this.props);
+
+        // Seteamos el indice de la pagina dependiendo de la URL para que 
+        // Se marquen el menú con el item correspondiente
+        switch ( this.props.location.pathname ) {
+            case '/mapa':
+                this.setState( prevState => {
+                    // Si selecciona el mismo no cambiamos
+                    if ( prevState.indexPagina !== 0 ) {
+                        return prevState.indexPagina = 0;
+                    }
+                });
+                break;
+            case '/bloques':
+                this.setState( prevState => {
+                    // Si selecciona el mismo no cambiamos
+                    if ( prevState.indexPagina !== 1 ) {
+                        return prevState.indexPagina = 1;
+                    }
+                });
+        }
+
         this.estaMontado = true;
 
         if ( this.props.bloques.length === 0 )
@@ -35,14 +58,6 @@ class HomePage extends Component {
     }
 
     render() {
-
-        let page = <SplashPage />
-
-        if ( !this.props.cargandoInfo ) { // Si no está cargando: Tab 0 = Mapa, 1 = Bloques
-            page = this.state.indexPagina === 0 ? <MapaPage /> : <BloquesPage />;
-        }
-
-        // TODO terminar de hacer el responsive
 
         return (
             <div className="HomePage">
@@ -75,11 +90,13 @@ class HomePage extends Component {
                     )
                 }
     
-        
-                {
-                    page
-                }
-          
+                <Switch >
+                    <Redirect exact from='/' to='/mapa'  />
+                    <Route exact path='/bloques' component={BloquesPage} />
+                    <Route path='/mapa' component={MapaPage} />
+                </Switch>
+
+
                 <div className="cont-home-bottom-nav">
                     <BottomNavigation 
                         className="home-bottom-nav"
@@ -139,6 +156,15 @@ class HomePage extends Component {
     }
 
     changeIndexPagina = (value) => {
+
+        switch(value) {
+            case 0:
+                this.props.history.push('/mapa');
+                break;
+            case 1:
+                this.props.history.push('/bloques');
+                break;
+        }
 
         this.setState( prevState => {
             // Si selecciona el mismo no cambiamos

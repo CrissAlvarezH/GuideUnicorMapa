@@ -15,7 +15,7 @@ class BloquesPage extends Component {
                             this.props.bloques.map( bloque => (
                                 <Link 
                                     to={{
-                                        pathname: '/bloques',
+                                        pathname: '/bloque',
                                         search: `?id=${bloque.id}`     
                                     }}
                                     style={{ textDecoration: 'none' }}
