@@ -134,15 +134,15 @@ class BloquePage extends Component {
 
     definitLetraZona = () => {
         switch (this.props.bloque.idZona) {
-            case 1:
+            case '1':
                 return 'A';
-            case 2:
+            case '2':
                 return 'B';
-            case 3:
+            case '3':
                 return 'C';
-            case 4:
+            case '4':
                 return 'D';
-            case 5:
+            case '5':
                 return 'E';
             default:
                 return '';
@@ -151,15 +151,15 @@ class BloquePage extends Component {
 
     definirColorChip = () => {
         switch (this.props.bloque.idZona) {
-            case 1:
+            case '1':
                 return 'fondo-verde';
-            case 2:
+            case '2':
                 return 'fondo-azul';
-            case 3:
+            case '3':
                 return 'fondo-rosa';
-            case 4:
+            case '4':
                 return 'fondo-rojo';
-            case 5:
+            case '5':
                 return 'fondo-amarillo';
             default:
                 return '';
