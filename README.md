@@ -1,4 +1,7 @@
 
+# Version obsoleta
+Esta version del frontend está siendo reemplazada para actualizar el codigo
+
 # Descripción
 La función principal de la aplicación es permitir orientar a las personas que no conocen del todo la Universidad De Córdoba en Montería.
 
